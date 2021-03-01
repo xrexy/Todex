@@ -9,7 +9,6 @@ func InitHandlers() *mux.Router {
 	router := mux.NewRouter()
 
 	router.HandleFunc("/", indexHandler())
-
-	router.HandleFunc("/help", welcomeHandler())
+	router.HandleFunc("/this_week", thisWeekHandler())
 	return router
 }

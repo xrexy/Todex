@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <meta charset="UTF-8">
+    <title>{{ .Title }}</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Ubuntu;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            {{ range $key, $value := .DaysMap }}
+                <th>{{$value.Weekday}}</th>
+            {{ end }}
+        </tr>
+        {{ range $key, $day := .DaysMap }}
+            {{ $length := len $day.Chores }}
+            {{ range $i, $chore := $day.Chores }}
+                {{ $x = inc $i }}
+                {{ if ge $length $x }}
+                    <tr>
+                        <td>{{ $length }} >= {{ $x }}</td>
+                    </tr>
+                {{ else }}
+                    <td>{{ $length }} >= {{ $x }}</td>
+                {{ end }} 
+            {{ end }}
+        {{end}}
+    </table>
+</body>
+</html>

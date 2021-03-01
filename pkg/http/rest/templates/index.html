@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ .Title }}</title>
-    <link href="../static/css/style.css" rel="stylesheet" type="text/css">
+    <!-- too dump to actually link to css file :/ -->
+    <style>
+        body {
+            background-color: aqua;
+        }
+    </style>
 </head>
 <body>
-    <h1>{{ .Titles }}</h1>
+    <h1>{{ .Title }}</h1>
     <br>Author: {{ .Author }}
+
+    <h2>TODO:</h2>
+    <ul>
+        <li><a href="/manage">Manage</a></li>
+        <li><a href="/this_week">This week</a></li>
+        <li><a href="/this_week">Last week</a></li>
+    </ul>
 </body>
 </html>

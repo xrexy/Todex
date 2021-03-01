@@ -14,6 +14,7 @@ func main() {
 	flag.Parse()
 
 	fmt.Println("Starting server on port:", *port)
+
 	router := rest.InitHandlers()
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), router))
 }
